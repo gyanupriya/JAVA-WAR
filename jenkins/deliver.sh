@@ -23,9 +23,11 @@ set +x
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
-java -jar target/${NAME}-${VERSION}.war
+/usr/bin/java -jar target/${NAME}-${VERSION}.war
 
-rm /var/lib/tomcat7/webapps/*.war
-cp /var/lib/jenkins/workspace/Pipeline-java-war/target/sparkjava-hello-world-*.war /var/lib/tomcat7/webapps/
+rm -f /var/lib/tomcat7/webapps/${NAME}-${VERSION}.war
+rm -rf /var/lib/tomcat7/webapps/${NAME}-${VERSION}
+sleep 5
+cp /var/lib/jenkins/workspace/Pipeline-java-war/target/${NAME}-${VERSION}.war /var/lib/tomcat7/webapps/
 
 

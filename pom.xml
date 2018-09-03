@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>sparkjava-hello-world</groupId>
-	<artifactId>sparkjava-hello-world</artifactId>
-	<version>1.0</version>
+	<groupId>java-hello-world</groupId>
+	<artifactId>java-hello-world</artifactId>
+	<version>1.1</version>
 	<packaging>war</packaging>
 
 	<dependencies>
@@ -19,6 +19,23 @@
 
 	<build>
 		<plugins>
+
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-jar-plugin</artifactId>
+		<version>1.1</version>
+                <configuration>
+                    <archive>
+                         <manifest>
+				 <addClasspath>true</addClasspath>
+				 <mainClass>Hello-world</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Built-By>gyanup</Built-By>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
