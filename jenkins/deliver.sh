@@ -20,16 +20,23 @@ set -x
 VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 set +x
 
-echo 'The following command runs and outputs the execution of your Java'
-echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
-set -x
-/usr/bin/java -jar target/${NAME}-${VERSION}.war
+#echo 'The following command runs and outputs the execution of your Java'
+#echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
+#set -x
+#/usr/bin/java -jar target/${NAME}-${VERSION}.war
 
-rm -f /var/lib/tomcat7/webapps/${NAME}-${VERSION}.war
-rm -rf /var/lib/tomcat7/webapps/${NAME}-${VERSION}
-#rm -f /var/lib/tomcat7/webapps/sparkjava-hello-world-1.0.war
-#rm -rf /var/lib/tomcat7/webapps/sparkjava-hello-world-1.0
+sudo rm -f /var/lib/tomcat7/webapps/java-hello-world-1.1.war
+sudo rm -rf /var/lib/tomcat7/webapps/java-hello-world-1.1
+#rm -f /var/lib/tomcat7/webapps/java-hello-world-1.1.war
+#rm -rf /var/lib/tomcat7/webapps/java-hello-world-1.1
 sleep 5
-cd /var/lib/tomcat7/webapps && cp -r /var/lib/jenkins/workspace/Pipeline-java-war/target/${NAME}-${VERSION}.war .
+ls -lrth /var/lib/tomcat7/webapps
+cp -r /var/lib/jenkins/workspace/Pipeline-java-war/target/java-hello-world-1.1.war /var/lib/tomcat7/webapps/
+sleep 5
+sudo service tomcat7 restart
+echo "Tomcat restarted"
+
+curl -v http://34.239.123.227:8081/java-hello-world-1.1/hello
+
 
 
