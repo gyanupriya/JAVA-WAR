@@ -12,12 +12,6 @@ pipeline {
             }
         }
       
-        stage('Deliver') {
-            steps {
-	        sh 'chmod 755 ./jenkins/deliver.sh'
-                sh './jenkins/deliver.sh'
-            }
-       }
    }                                    
 
 }
