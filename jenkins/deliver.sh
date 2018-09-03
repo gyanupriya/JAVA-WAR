@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 echo 'The following Maven command installs your Maven-built Java application'
 echo 'into the local Maven repository, which will ultimately be stored in'
@@ -25,8 +25,8 @@ set +x
 #set -x
 #/usr/bin/java -jar target/${NAME}-${VERSION}.war
 
-sudo rm -f /var/lib/tomcat7/webapps/java-hello-world-1.1.war
-sudo rm -rf /var/lib/tomcat7/webapps/java-hello-world-1.1
+rm -f /var/lib/tomcat7/webapps/java-hello-world-1.1.war
+rm -rf /var/lib/tomcat7/webapps/java-hello-world-1.1
 #rm -f /var/lib/tomcat7/webapps/java-hello-world-1.1.war
 #rm -rf /var/lib/tomcat7/webapps/java-hello-world-1.1
 sleep 5
