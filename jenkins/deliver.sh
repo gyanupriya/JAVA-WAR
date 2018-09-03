@@ -30,6 +30,6 @@ rm -rf /var/lib/tomcat7/webapps/${NAME}-${VERSION}
 #rm -f /var/lib/tomcat7/webapps/sparkjava-hello-world-1.0.war
 #rm -rf /var/lib/tomcat7/webapps/sparkjava-hello-world-1.0
 sleep 5
-cp /var/lib/jenkins/workspace/Pipeline-java-war/target/${NAME}-${VERSION}.war /var/lib/tomcat7/webapps/
+cd /var/lib/tomcat7/webapps && cp -r /var/lib/jenkins/workspace/Pipeline-java-war/target/${NAME}-${VERSION}.war .
 
 
