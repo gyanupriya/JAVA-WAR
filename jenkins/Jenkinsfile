@@ -11,12 +11,6 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-	 stage('Deliver') {
-            steps {
-	        sh 'chmod 777 ./jenkins/deliver.sh'
-                sh './jenkins/deliver.sh'
-            }
-        }
 
    }                                    
 
